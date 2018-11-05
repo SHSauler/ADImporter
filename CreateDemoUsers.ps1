@@ -109,14 +109,13 @@ for ($i = 0; $i -le $locationCount; $i++)
 $i = 0
 if ($i -lt $userCount) 
 {
-    foreach ($firstname in $firstNames)
-{
-    foreach ($lastname in $lastnames)
-    {
-    $Fname = $firstname.Firstname
-    $Lname = $lastName.Lastname
+  foreach ($lastname in $lastnames)
+   {
+   $FnameIndex = Get-Random -Minimum 0 -Maximum $firstNames.Count
+   $Fname = $firstNames[$FnameIndex].Firstname
+   $Lname = $lastName.Lastname
 
-    $displayName = $Fname + " " + $Lname
+   $displayName = $Fname + " " + $Lname
 
    # Address
    $locationIndex = Get-Random -Minimum 0 -Maximum $locations.Count
