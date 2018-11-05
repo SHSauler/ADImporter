@@ -164,7 +164,7 @@ if ($i -lt $userCount)
    #
       New-ADUser -SamAccountName $sAMAccountName -Name $displayName -Path $ou -AccountPassword $securePassword -Enabled $true -GivenName $Fname -Surname $Lname -DisplayName $displayName -EmailAddress "$Fname.$Lname@$dnsDomain" -StreetAddress $street -City $city -PostalCode $postalCode -State $state -Country $country -UserPrincipalName "$sAMAccountName@$dnsDomain" -Company $company -Department $department -EmployeeNumber $employeeNumber -Title $title -OfficePhone $officePhone
 
-   "Created user #" + ($i+1) + ", $displayName, $sAMAccountName, $title, $department, $street, $city"
+   "Created user #" + ($i+1) + ", $Lname, $Fname, $sAMAccountName, $title, $department, $street, $city"
    $i = $i+1
    $employeeNumber = $employeeNumber+1
 
