@@ -115,7 +115,7 @@ if ($i -lt $userCount)
    $Fname = $firstNames[$FnameIndex].Firstname
    $Lname = $lastName.Lastname
 
-   $displayName = $Fname + " " + $Lname
+
 
    # Address
    $locationIndex = Get-Random -Minimum 0 -Maximum $locations.Count
@@ -144,7 +144,10 @@ if ($i -lt $userCount)
    $officePhone = $phoneCountryCodes[$country] + "-" + $postalAreaCodes[$postalCode].Substring(1) + "-" + (Get-Random -Minimum 100000 -Maximum 1000000)
    
    # Build the sAMAccountName: $orgShortName + employee number
+   $employeeNumber = Get-Random -Minimum 1000000 -Maximum 10000000
    $sAMAccountName = $orgShortName + $employeeNumber
+   $displayName = $sAMAccountName
+   
    $userExists = $false
    Try   { $userExists = Get-ADUser -LDAPFilter "(sAMAccountName=$sAMAccountName)" }
    Catch { }
@@ -170,6 +173,5 @@ if ($i -lt $userCount)
        "Script Complete. Exiting"
        exit
    }
-}
 }
 }
